@@ -12,7 +12,7 @@ from PyPDF2 import PdfFileMerger
 fileDir = os.path.dirname(os.path.realpath(__file__))
 print "This is fileDir: " + fileDir
 
-#pdf get tall the pdfs to merge
+#pdf get all the pdfs to merge
 pdfToMerge = [pdfIndex for pdfIndex in os.listdir(fileDir) if pdfIndex.endswith(".pdf")]
 print "The files to merge are:"
 print pdfToMerge
