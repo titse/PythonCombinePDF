@@ -15,9 +15,12 @@ workingDirectory = os.path.dirname(os.path.realpath(__file__))
 for root, dirs, files in os.walk(workingDirectory):
     merger = PdfFileMerger()
     for dirIndex in dirs:
-        for filename in files:
-            if filename.endswith(".pdf"):
-                filepath = os.path.join(root, filename)
-                merger.append(PdfFileReader(open(filepath, 'rb')))
-                print dirIndex
-            merger.write(os.path.join(workingDirectory, dirIndex + '.pdf'))
+        pdfToMerge = [pdfIndex for pdfIndex in os.listdir(dirIndex) if pdfIndex.endswith(".pdf")]
+        for pdfFiles in pdfToMerge:
+            filepath = os.path.join(workingDirectory, dirIndex)
+            mergedFile = os.path.join(filepath, pdfFiles)
+            merger.append(open(mergedFile, 'rb'))
+
+        with open(merger.write(os.path.join(workingDirectory, dirIndex + '.pdf')), "wb") as fout:
+            merger.write(fout)
+            merger.close()
