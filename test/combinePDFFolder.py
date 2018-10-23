@@ -23,4 +23,5 @@ for root, dirs, files in os.walk(workingDirectory):
 
         with open(os.path.join(workingDirectory, dirIndex + '.pdf'), "wb") as fout:
             merger.write(fout)
-            merger.close()
+
+        merger.close()
