@@ -21,6 +21,6 @@ for root, dirs, files in os.walk(workingDirectory):
             mergedFile = os.path.join(filepath, pdfFiles)
             merger.append(PdfFileReader(open(mergedFile, 'rb')))
 
-        with open(merger.write(os.path.join(workingDirectory, dirIndex + '.pdf')), "wb") as fout:
+        with open(os.path.join(workingDirectory, dirIndex + '.pdf'), "wb") as fout:
             merger.write(fout)
             merger.close()
